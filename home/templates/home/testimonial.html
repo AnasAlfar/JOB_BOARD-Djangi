@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block body %} 
+<!-- bradcam_area  -->
+ <div class="bradcam_area bradcam_bg_1">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="bradcam_text">
+                    <h3>Testimonial</h3>
+                    <a href="{% url 'home:create_testimonial' %}" class="boxed-btn3" type="submit"  >Create Testimonial</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/ bradcam_area  -->
+
+<!-- testimonial_area  -->
+
+<div class="testimonial_area  ">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section_title text-center mb-40">
+                    <h3>Testimonial</h3>
+                </div>
+            </div>
+            <div class="col-xl-12">
+                <div class="testmonial_active owl-carousel">
+                    {% for test in testimonials %}
+                    <div class="single_carousel">
+                        <div class="row">
+                            <div class="col-lg-11">
+                                <div class="single_testmonial d-flex align-items-center">
+                                    <div class="thumb">
+                                        <img src="{{ test.image.url }}" alt="try" width="228" height="228">
+                                        <div class="quote_icon">
+                                            <i class=" Flaticon flaticon-quote"></i>
+                                        </div>
+                                    </div>
+                                    <div class="info">
+                                        <p>{{test.content}}</p>
+                                        <span>- {{test.author}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- /testimonial_area  -->
+
+{% endblock body %}

@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+{% load bootstrap4 %}
+{% block content %}
+
+
+<h1>Signup</h1>
+  
+
+  <form method="post" >
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <input type="submit" class="boxed-btn3 w-100" value="Signup">
+    
+  </form>
+
+  {# Assumes you setup the password_reset view in your URLconf #}
+ 
+
+{% endblock %}
